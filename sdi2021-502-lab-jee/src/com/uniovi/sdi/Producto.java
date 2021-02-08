@@ -22,7 +22,7 @@ public class Producto {
 		return nombre;
 	}
 	
-	public void bsetNombre(String nombre) {
+	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 	
