@@ -36,7 +36,7 @@ public class ServletEliminar extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		HashMap<String, Integer> carrito = (HashMap<String, Integer>) request.getAttribute("carrito");
+		HashMap<String, Integer> carrito = (HashMap<String, Integer>) request.getSession().getAttribute("carrito");
 		
 		if(carrito != null) {
 			String	producto = request.getParameter("par");
