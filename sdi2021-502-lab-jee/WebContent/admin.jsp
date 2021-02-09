@@ -29,8 +29,6 @@
 		</c:if>
 		
 		
-		
-
 		<!-- Contenido	-->
 		<div class="container" id="contenedor-principal">
 		<!-- Contenido -->

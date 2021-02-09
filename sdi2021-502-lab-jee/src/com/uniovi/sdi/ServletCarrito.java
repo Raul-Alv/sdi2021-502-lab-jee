@@ -38,12 +38,12 @@ public class ServletCarrito extends HttpServlet {
 							(HashMap<String,Integer>)	request.getSession().getAttribute("carrito");
 //			No	hay	carrito,	creamos	uno	y	lo	insertamos	en	sesión
 		if	(carrito	==	null)	{
-		carrito	=	new	HashMap<String,Integer>();
-						request.getSession().setAttribute("carrito",	carrito);
+			carrito	=	new	HashMap<String,Integer>();
+			request.getSession().setAttribute("carrito",	carrito);
 		}
 		String	producto	=	request.getParameter("producto");
 		if	(	producto	!=	null){
-		insertarEnCarrito(carrito,	producto);
+			insertarEnCarrito(carrito,	producto);
 		}
 //			Retornar	la	vista	con	parámetro	"carrito"
 		request.setAttribute("paresCarrito",	carrito);

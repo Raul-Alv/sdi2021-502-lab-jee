@@ -1,5 +1,4 @@
-<%@ page language="java"	contentType="text/html;	charset=utf-8"
-				pageEncoding="utf-8"%>
+<%@ page language="java"	contentType="text/html;	charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="c"	uri="http://java.sun.com/jsp/jstl/core"	%>
 <!DOCTYPE html	PUBLIC "-//W3C//DTD	HTML	4.01	Transitional//EN"	
 "http://www.w3.org/TR/html4/loose.dtd">
@@ -16,11 +15,12 @@
 	<body>
 		<!-- Contenido -->
 		<div class="container"	id="contenedor-principal">
-			<h2>Vista-Carrito</h2>
+			<h2>Vista Carrito</h2>
 			<ul>
 				<c:forEach var="par"	items="${paresCarrito}">
 				<tr>
-					<li>${par.key} - ${par.value}	</li>
+					<li>${par.key} - ${par.value} <a href="eliminarDeCarrito?par=<c:out value="${par.key}"/>">
+						Eliminar</a></li>
 				</tr>
 				</c:forEach>
 			</ul>
