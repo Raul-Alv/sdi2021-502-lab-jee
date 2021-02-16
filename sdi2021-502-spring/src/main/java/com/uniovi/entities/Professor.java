@@ -32,12 +32,12 @@ public class Professor {
 		this.dni = dni;
 	}
 	
-	public String getName() {
+	public String getNombre() {
 		return nombre;
 	}
 	
-	public void setName(String name) {
-		this.nombre = name;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 	
 	public String getApellidos() {

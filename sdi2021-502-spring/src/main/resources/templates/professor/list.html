@@ -53,11 +53,11 @@
       </tr>
     </thead>
 	<tbody>
-	  <tr th:each="mark : ${professorList}">
-	    <td th:text="${professor.dni}"> </td>
-	    <td th:text="${professor.nombre}"> </td>
-	    <td th:text="${professor.apellido}"></td>
-	    <td th:text="${professor.categoria}"></td>
+	  <tr th:each="professor : ${professorList}">
+	    <td th:text="${professor.dni}"> 32184452P</td>
+	    <td th:text="${professor.nombre}"> Marcos</td>
+	    <td th:text="${professor.apellidos}"> Gonzalez</td>
+	    <td th:text="${professor.categoria}"> Infantil</td>
 	    <td><a th:href="${'/professor/details/' + professor.dni}">detalles</a></td>
 	    <td><a th:href="${'/professor/edit/' + professor.dni}">modificar</a></td>
 	    <td><a th:href="${'/professor/delete/' + professor.dni}">eliminar</a></td>
