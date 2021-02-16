@@ -21,7 +21,7 @@ public class ProfessorsController {
 		return professorService.getProfessors().toString();
 	}
 	
-	@RequestMapping(value="/professor/add", method=RequestMethod.POST)
+	@RequestMapping(value="/professor/add")
 	public String setProfessor(@ModelAttribute Professor professor) {
 		professorService.addProfessor(professor);
 		return "Ok";
@@ -37,18 +37,5 @@ public class ProfessorsController {
 	public String deletePorfessor(@ModelAttribute String dni) {
 		professorService.deleteProfessor(dni);
 		return "Ok";
-	}
-	
-	@RequestMapping(value="/professor/edit/{dni}")
-	public String getEdit(Model model, @ModelAttribute String dni){
-		model.addAttribute("professor", professorService.getProfessor(dni));
-		return "Ok";
-	}
-	
-	@RequestMapping(value="/professor/edit/{dni}", method=RequestMethod.POST)
-	public String setEdit(@ModelAttribute String dni, @ModelAttribute Professor professor){
-		professor.setDni(dni);
-		professorService.addProfessor(professor);
-		return professorService.getProfessor(dni).getDni();
 	}
 }
