@@ -22,8 +22,9 @@ public class ProfessorsController {
 	}
 	
 	@RequestMapping(value="/professor/add")
-	public String setProfessor(@ModelAttribute Professor professor) {
-		professorService.addProfessor(professor);
+	public String setProfessor(@ModelAttribute String dni) {
+		//professorService.addProfessor(professor);
+		professorService.addProfessor(new Professor("32165488M", "Carla", "Perez Iglesias", "Informatica"));
 		return "Ok";
 	}
 	

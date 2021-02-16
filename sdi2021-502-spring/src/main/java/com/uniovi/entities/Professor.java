@@ -7,7 +7,6 @@ import javax.persistence.Id;
 @Entity
 public class Professor {
 	@Id
-	@GeneratedValue
 	private String dni;
 	private String nombre;
 	private String apellidos;
