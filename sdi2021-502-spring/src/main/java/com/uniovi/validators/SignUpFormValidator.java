@@ -15,7 +15,7 @@ public class SignUpFormValidator implements Validator {
 	
 	@Override
 	public boolean supports(Class<?> aClass) {
-	return User.class.equals(aClass);
+		return User.class.equals(aClass);
 	}
 	
 	@Override
@@ -23,12 +23,17 @@ public class SignUpFormValidator implements Validator {
 		User user = (User) target;
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "dni", "Error.empty");
 		
-		if (user.getDni().length() < 5 || user.getDni().length() > 24) {
+		if (user.getDni().length() != 9) {
 			errors.rejectValue("dni", "Error.signup.dni.length");
 		}
 		
 		if (usersService.getUserByDni(user.getDni()) != null) {
 			errors.rejectValue("dni", "Error.signup.dni.duplicate");
+		}
+		
+		char c = (Character)user.getDni().charAt(user.getDni().length() - 1);
+		if(!Character.isLetter(c)) {
+			errors.rejectValue("dni", "Error.notLetter");
 		}
 		
 		if (user.getName().length() < 5 || user.getName().length() > 24) {
@@ -47,5 +52,6 @@ public class SignUpFormValidator implements Validator {
 			errors.rejectValue("passwordConfirm",
 					"Error.signup.passwordConfirm.coincidence");
 		}
+		
 	}
 }

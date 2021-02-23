@@ -17,11 +17,6 @@ public class ProfessorService {
 	
 	public List<Professor> getProfessors(){
 		List<Professor> professors = new ArrayList<Professor>();
-		/*
-		professors.add(new Professor("45887125U", "Marcos", "Gonzalez Santos", "Suplente"));
-		professors.add(new Professor("65485618Y", "Maria", "Alvarez Muñiz", "Matematicas"));
-		professors.add(new Professor("32165488M", "Carla", "Perez Iglesias", "Informatica"));
-		 */
 		professorsRepository.findAll().forEach(professors::add);
 		return professors;
 
