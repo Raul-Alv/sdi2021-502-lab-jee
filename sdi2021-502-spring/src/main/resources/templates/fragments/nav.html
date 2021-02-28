@@ -11,7 +11,7 @@
 			<img src="/img/student-48.png" alt="logo" />
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
-			<ul class="nav navbar-nav">
+			<ul class="nav navbar-nav"  sec:authorize="isAuthenticated()">
 				<li><a href="/"><span th:text="#{nav.home}">Home</span></a></li>
 				<li id="marks-menu" class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#"><span 
@@ -19,11 +19,11 @@
 						Gestión de notas</span> <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="/mark/add"><span th:text="#{nav.mark.add}">Agregar nota</span></a></li>
+						<li sec:authorize="hasRole('ROLE_PROFESSOR')"><a href="/mark/add"><span th:text="#{nav.mark.add}">Agregar nota</span></a></li>
 						<li><a href="/mark/list"><span th:text="#{nav.mark.list}">Ver notas</span></a></li>
 					</ul>
 				</li>
-				<li id="users-menu" class="dropdown">
+				<li id="users-menu" class="dropdown" sec:authorize="hasRole('ROLE_ADMIN')">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 						<span th:text="#{nav.user.management}">
 						Gestión de usuarios</span> <span class="caret"></span> 
@@ -67,16 +67,22 @@
 					</ul>
 				</li>
 				
-				<li>
+				<li sec:authorize="!isAuthenticated()">
 					<a href="/signup" th:text="#{signup.message}">
 						<span class="glyphicon glyphicon-user"></span>
 						Registrate
 					</a>
 				</li>
-				<li>
+				<li sec:authorize="!isAuthenticated()">
 					<a href="/login" th:text="#{login.message}">
 						<span class="glyphicon glyphicon-log-in"></span>
 						Identifícate
+					</a>
+				</li>
+				<li sec:authorize="isAuthenticated()">
+					<a href="/logout" >
+						<span class="glyphicon glyphicon-log-out"></span>
+						Desconectar
 					</a>
 				</li>
 			</ul>

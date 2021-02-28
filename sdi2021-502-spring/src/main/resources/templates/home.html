@@ -9,8 +9,8 @@
 			<h2 th:text="#{welcome.message}"></h2>
 			<h3 th:text="#{home.private}"></h3>
 			<p>
-				<span th:text="#{home.userLogin}"></span>
-				<b th:inline="text"> [[${#httpServletRequest.remoteUser}]] </b>
+				<span th:text="#{home.userLogin}" sec:authentication="principal.username" ></span>
+				<b th:inline="text"> </b>
 			</p>
 			<p th:text="#{home.marks}"></p>
 			<div class="table-responsive">
