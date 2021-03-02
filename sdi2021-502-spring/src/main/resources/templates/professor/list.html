@@ -25,13 +25,18 @@
     </thead>
 	<tbody>
 	  <tr th:each="professor : ${professorList}">
+	  	<td th:text="${professor.id}"> 1</td>
 	    <td th:text="${professor.dni}"> 32184452P</td>
 	    <td th:text="${professor.nombre}"> Marcos</td>
 	    <td th:text="${professor.apellidos}"> Gonzalez</td>
 	    <td th:text="${professor.categoria}"> Infantil</td>
-	    <td><a th:href="${'/professor/details/' + professor.dni}">detalles</a></td>
-	    <td><a th:href="${'/professor/edit/' + professor.dni}">modificar</a></td>
-	    <td><a th:href="${'/professor/delete/' + professor.dni}">eliminar</a></td>
+	    <td><a sec:authorize="hasRole('ROLE_ADMIN') || hasRole('ROLE_PROFESSOR')" th:href="${'/professor/details/' + professor.id}">detalles</a></td>
+	    <td><a sec:authorize="hasRole('ROLE_ADMIN')"
+	    	 th:href="${'/professor/edit/' + professor.id}">modificar</a>
+	    </td>
+	    <td><a sec:authorize="hasRole('ROLE_ADMIN')" 
+	    	th:href="${'/professor/delete/' + professor.id}">eliminar</a>
+	    </td>
 	  </tr>
 	</tbody>
   </table>

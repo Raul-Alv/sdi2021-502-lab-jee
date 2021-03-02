@@ -7,13 +7,16 @@ import javax.persistence.Id;
 @Entity
 public class Professor {
 	@Id
+	@GeneratedValue
+	private long id;
 	private String dni;
 	private String nombre;
 	private String apellidos;
 	private String categoria;
 	
-	public Professor(String dni, String name, String apellidos, String categoria) {
+	public Professor(Long id, String dni, String name, String apellidos, String categoria) {
 		super();
+		this.id = id;
 		this.dni = dni;
 		this.nombre = name;
 		this.apellidos = apellidos;
@@ -24,6 +27,14 @@ public class Professor {
 		
 	}
 	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	public String getDni() {
 		return dni;
 	}
@@ -57,7 +68,7 @@ public class Professor {
 	}
 	
 	public String toString() {
-		return "DNI: " + dni + "; Nombre: " + nombre + "; Apellidos: " + apellidos +
+		return "Id: " + id + ": DNI: " + dni + "; Nombre: " + nombre + "; Apellidos: " + apellidos +
 				"; Categoria: " + categoria + " :: "; 
 	}
 }
