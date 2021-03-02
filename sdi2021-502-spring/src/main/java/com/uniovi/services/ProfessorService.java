@@ -1,7 +1,11 @@
 package com.uniovi.services;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +17,9 @@ import com.uniovi.repositories.ProfessorRepository;
 public class ProfessorService {
 
 	@Autowired
+	private HttpSession httpSession;
+	
+	@Autowired
 	private ProfessorRepository professorsRepository;
 	
 	public List<Professor> getProfessors(){
@@ -22,8 +29,8 @@ public class ProfessorService {
 
 	}
 	
-	public Professor getProfessor(String dni){
-		return professorsRepository.findById(dni).get();
+	public Professor getProfessor(long id){
+		return professorsRepository.findById(id).get();
 	}
 	
 	public void addProfessor(Professor professors){
@@ -31,7 +38,7 @@ public class ProfessorService {
 		professorsRepository.save(professors);
 	}
 	
-	public void deleteProfessor(String dni){
-		professorsRepository.deleteById(dni);
+	public void deleteProfessor(long id){
+		professorsRepository.deleteById(id);
 	}
 }

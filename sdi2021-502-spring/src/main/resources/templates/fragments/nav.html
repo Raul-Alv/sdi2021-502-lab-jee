@@ -32,6 +32,16 @@
 						<li><a href="/user/add"><span th:text="#{nav.user.add}">Agregar usuario</span></a></li>
 						<li><a href="/user/list"><span th:text="#{nav.user.list}">Ver usuarios</span></a></li>
 					</ul>
+				</li>
+				<li id="marks-menu" class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#"><span 
+						th:text="#{nav.professor.management}">
+						Gestión de profesores</span> <span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/professor/add"><span th:text="#{nav.professor.add}">Agregar profesor</span></a></li>
+						<li><a href="/professor/list"><span th:text="#{nav.professor.list}">Ver profesores</span></a></li>
+					</ul>
 				</li>	
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
